@@ -7,12 +7,19 @@
     <title>OneSignal Web Push Test</title>
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <script>
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function () {
-            OneSignal.init({
+        setTimeout(function () {
+            var OneSignal = window.OneSignal || [];
+
+            OneSignal.push(["init", {
                 appId: "7e966bb7-a78d-4e74-9c67-fa04a2fa8a64",
-            });
-        });
+                autoRegister: true,
+                notifyButton: { enable: true },
+                httpPermissionRequest: { enable: true },
+                notifyButton: { enable: false },
+                welcomeNotification: { disable: true },
+                persistNotification: false
+            }]);
+        }, 2500);
     </script>
 </head>
 
